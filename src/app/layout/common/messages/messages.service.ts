@@ -37,14 +37,14 @@ export class MessagesService
     /**
      * Get all messages
      */
-    getAll(): Observable<Message[]>
-    {
-        return this._httpClient.get<Message[]>('api/common/messages').pipe(
-            tap((messages) => {
-                this._messages.next(messages);
-            })
-        );
-    }
+    // getAll(): Observable<Message[]>
+    // {
+    //     return this._httpClient.get<Message[]>('api/common/messages').pipe(
+    //         tap((messages) => {
+    //             this._messages.next(messages);
+    //         })
+    //     );
+    // }
 
     /**
      * Create a message
