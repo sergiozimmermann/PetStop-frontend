@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "petstopdb": {
+      "hosting": {
+        "fuse": [
+          "petstopdb"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "petstopdb"
+  }
+}

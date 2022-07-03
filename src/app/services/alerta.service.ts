@@ -30,9 +30,9 @@ getAlerts(): Observable<Alert[]> {
 //     return docData(noteDocRef, { idField: 'id' }) as Observable<Note>;
 //   }
 
-addNote(alert: Alert) {
-    const notesRef = collection(this.firestore, 'notes');
-    return addDoc(notesRef, alert);
+addAlert(gramas: any, hora: string) {
+    const alertsRef = collection(this.firestore, 'alerts');
+    return addDoc(alertsRef, {gramas: gramas, hora: hora});
   }
 
   deleteAlert(alert: Alert) {
