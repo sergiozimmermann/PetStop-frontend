@@ -1,15 +1,15 @@
 <!-- Avatar and name -->
 
-<div class="flex flex-col flex-auto w-full p-8 text-center">
+<div *ngFor="let pet of pets" class="flex flex-col flex-auto w-full p-8 text-center">
     <div class="w-32 h-32 mx-auto rounded-full overflow-hidden">
         <img
             class="w-full h-full object-cover"
             src="assets/images/avatars/brian-hughes.jpg">
             <!-- [src]="member.avatar" -->
     </div>
-    <div class="mt-6 font-medium">something</div>
+    <div class="mt-6 font-medium">{{pet.nome}}</div>
     <!-- {{member.name}} {{member.title}} -->
-    <div class="text-secondary">something</div>
+    <div class="text-secondary">{{pet.tamanho}}</div>
 
     <div>
         <button
