@@ -10,14 +10,14 @@ import { InitialDataResolver } from 'app/app.resolvers';
 export const appRoutes: Route[] = [
 
     // Redirect empty path to '/dashboards/project'
-    {path: '', pathMatch : 'full', redirectTo: 'dashboards/project'},
+    {path: '', pathMatch : 'full', redirectTo: 'project/main'},
 
     // Redirect signed in user to the '/dashboards/project'
     //
     // After the user signs in, the sign in page will redirect the user to the 'signed-in-redirect'
     // path. Below is another redirection for that path to redirect the user to the desired
     // location. This is a small convenience to keep all main routes together here on this file.
-    {path: 'signed-in-redirect', pathMatch : 'full', redirectTo: 'dashboards/project'},
+    {path: 'signed-in-redirect', pathMatch : 'full', redirectTo: 'project/main'},
 
     // Auth routes for guests
     {
@@ -79,6 +79,14 @@ export const appRoutes: Route[] = [
             {path: 'dashboards', children: [
                 {path: 'project', loadChildren: () => import('app/modules/admin/dashboards/project/project.module').then(m => m.ProjectModule)},
                 // {path: 'analytics', loadChildren: () => import('app/modules/admin/dashboards/analytics/analytics.module').then(m => m.AnalyticsModule)},
+            ]},
+            {path: 'projeto', children: [
+                {path: 'main', loadChildren: () => import('app/modules/admin/project/main/main.module').then(m => m.MainModule)},
+                {path: 'perfil', loadChildren: () => import('app/modules/admin/project/perfil/perfil.module').then(m => m.PerfilModule)},
+                {path: 'aparelhos', loadChildren: () => import('app/modules/admin/project/aparelhos/aparelhos.module').then(m => m.AparelhosModule)},
+                //{path: 'config', loadChildren: () => import('app/modules/admin/project/config/config.module').then(m => m.ConfigModule)},
+                {path: 'adicionar', loadChildren: () => import('app/modules/admin/project/adicionar/adicionar.module').then(m => m.AdicionarModule)},
+                {path: 'alter-pet', loadChildren: () => import('app/modules/admin/project/alter-pet/alter-pet.module').then(m => m.AlterPetModule)},
             ]},
 
             // Apps

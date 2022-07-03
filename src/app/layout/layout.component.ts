@@ -243,12 +243,12 @@ export class LayoutComponent implements OnInit, OnDestroy {
         this._document.body.classList.add(`theme-${this.theme}`);
     }
 
-    public setDarkAndLight() {
-        if (this.scheme === 'light') {
-            this.scheme = 'dark';
-        } else {
-            this.scheme = 'light';
-        }
-        this._updateScheme();
-    }
+    // public setDarkAndLight() {
+    //     if (this.scheme === 'light') {
+    //         this.scheme = 'dark';
+    //     } else {
+    //         this.scheme = 'light';
+    //     }
+    //     this._updateScheme();
+    // }
 }

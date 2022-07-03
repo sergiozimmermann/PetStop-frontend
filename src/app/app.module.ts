@@ -13,6 +13,10 @@ import { LayoutModule } from 'app/layout/layout.module';
 import { AppComponent } from 'app/app.component';
 import { appRoutes } from 'app/app.routing';
 
+import { environment } from 'environments/environment';
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+
 const routerConfig: ExtraOptions = {
     scrollPositionRestoration: 'enabled',
     preloadingStrategy       : PreloadAllModules
@@ -39,7 +43,11 @@ const routerConfig: ExtraOptions = {
         LayoutModule,
 
         // 3rd party modules that require global configuration via forRoot
-        MarkdownModule.forRoot({})
+        MarkdownModule.forRoot({}),
+
+        provideFirebaseApp(() => initializeApp(environment.firebase)),
+        provideFirestore(() => getFirestore())
+
     ],
     bootstrap   : [
         AppComponent

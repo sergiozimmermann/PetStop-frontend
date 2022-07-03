@@ -1,0 +1,26 @@
+<!-- Avatar and name -->
+
+<div class="flex flex-col flex-auto w-full p-8 text-center">
+    <div class="w-32 h-32 mx-auto rounded-full overflow-hidden">
+        <img
+            class="w-full h-full object-cover"
+            src="assets/images/avatars/brian-hughes.jpg">
+            <!-- [src]="member.avatar" -->
+    </div>
+    <div class="mt-6 font-medium">something</div>
+    <!-- {{member.name}} {{member.title}} -->
+    <div class="text-secondary">something</div>
+
+    <div>
+        <button
+        [routerLink]="['../alter-pet']"
+        class="fuse-mat-button-rounded"
+        mat-flat-button
+        [color]="'primary'">
+        <mat-icon
+            class="icon-size-5"
+            [svgIcon]="'heroicons_solid:cog'"></mat-icon>
+        <span class="ml-2">Alterar</span>
+    </button>
+    </div>
+</div>
