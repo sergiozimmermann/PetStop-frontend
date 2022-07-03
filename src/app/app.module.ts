@@ -16,6 +16,14 @@ import { appRoutes } from 'app/app.routing';
 import { environment } from 'environments/environment';
 import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { provideFunctions,getFunctions } from '@angular/fire/functions';
+import { provideMessaging,getMessaging } from '@angular/fire/messaging';
+import { providePerformance,getPerformance } from '@angular/fire/performance';
+import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config';
+import { provideStorage,getStorage } from '@angular/fire/storage';
 
 const routerConfig: ExtraOptions = {
     scrollPositionRestoration: 'enabled',
@@ -46,11 +54,22 @@ const routerConfig: ExtraOptions = {
         MarkdownModule.forRoot({}),
 
         provideFirebaseApp(() => initializeApp(environment.firebase)),
-        provideFirestore(() => getFirestore())
+        provideFirestore(() => getFirestore()),
+        provideAnalytics(() => getAnalytics()),
+        provideAuth(() => getAuth()),
+        provideDatabase(() => getDatabase()),
+        provideFunctions(() => getFunctions()),
+        provideMessaging(() => getMessaging()),
+        providePerformance(() => getPerformance()),
+        provideRemoteConfig(() => getRemoteConfig()),
+        provideStorage(() => getStorage())
 
     ],
     bootstrap   : [
         AppComponent
+    ],
+    providers: [
+      ScreenTrackingService,UserTrackingService
     ]
 })
 export class AppModule
