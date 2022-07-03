@@ -4,17 +4,45 @@ import { FuseNavigationItem } from '@fuse/components/navigation';
 export const defaultNavigation: FuseNavigationItem[] = [
     {
         id: 'dashboards',
-        title: 'Dashboards',
-        subtitle: 'Unique dashboard designs',
+        //title: 'Dashboards',
+        //subtitle: 'Unique dashboard designs',
         type: 'group',
-        icon: 'heroicons_outline:home',
+        //icon: 'heroicons_outline:home',
         children: [
+            // {
+            //     id: 'dashboards.project',
+            //     title: 'Project',
+            //     type: 'basic',
+            //     //icon: 'heroicons_outline:clipboard-check',
+            //     link: '/dashboards/project'
+            // },
             {
-                id: 'dashboards.project',
-                title: 'Project',
+                id: 'projeto.main',
+                title: 'Home',
                 type: 'basic',
-                icon: 'heroicons_outline:clipboard-check',
-                link: '/dashboards/project'
+                //icon: 'heroicons_outline:clipboard-check',
+                link: '/projeto/main'
+            },
+            {
+                id: 'projeto.perfil',
+                title: 'Seu Pet',
+                type: 'basic',
+                //icon: 'heroicons_outline:clipboard-check',
+                link: '/projeto/perfil'
+            },
+            {
+                id: 'dashboards.aparelhos',
+                title: 'Aparelhos',
+                type: 'basic',
+                //icon: 'heroicons_outline:clipboard-check',
+                link: '/projeto/aparelhos'
+            },
+            {
+                id: 'dashboards.config',
+                title: 'Configurações',
+                type: 'basic',
+                //icon: 'heroicons_outline:clipboard-check',
+                link: '/projeto/config'
             }
         ]
     }
