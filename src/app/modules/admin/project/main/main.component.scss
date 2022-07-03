@@ -1,3 +1,12 @@
-.alarm{
+.alarm {}
 
+:host {
+    ::ng-deep {
+        .deletarAlarm {
+            background-color: #666;
+            border-radius: 50%;
+            width: 60px !important;
+            height: 60px !important;
+        }
+    }
 }

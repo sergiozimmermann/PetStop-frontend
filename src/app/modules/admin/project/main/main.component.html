@@ -1,28 +1,61 @@
 <!-- Schedule -->
-<div>
-<div class="alarm" *ngFor="let alert of alerts">
-    <!-- <div class="flex flex-col sm:flex-row items-start "> -->
-            <mat-button-toggle-group
-                value="today"
-                #scheduleDaySelector="matButtonToggleGroup">
-                <div value="tomorrow">{{ alert.hora }}</div>
-                <div value="tomorrow">{{ alert.gramas }}g</div>
-                <mat-button-toggle value="today">
-                    <mat-icon
-                    class="icon-size-5 text-hint"
-                    [svgIcon]="'heroicons_solid:clock'">
-                    </mat-icon>
-                </mat-button-toggle>
+<div class="w-full pt-2">
+    <div class="alarm mb-2" style="text-align: center; box-shadow: 0 5px 10px rgb(0 0 0 / 20%);"
+        *ngFor="let alert of alerts">
+        <!-- <div class="flex flex-col sm:flex-row items-start "> -->
+        <ng-container>
+            <mat-button-toggle-group value="today" #scheduleDaySelector="matButtonToggleGroup">
+                <div class="flex flex-row w-full">
+                    <div class="flex flex-row w-full">
+                        <div class="flex flex-col"
+                            style="width: 80% !important; text-align: start; padding-left: 2rem;">
+                            <div value="tomorrow" style="font-family: 'Inter var'; font-size: 28px">{{ alert.hora }}
+                            </div>
+                            <div value="tomorrow">{{ alert.gramas }}g</div>
+                        </div>
+                        <button
+                            style="background-color: #00000000; border-radius: 50%; width: 50px !important; height: 50px !important; align-self: center">
+                            <img [src]="dogBowlEnabled">
+                        </button>
+                    </div>
+                    <button
+                        style="background-color: #B7B7B7; border-radius: 50%; width: 50px !important; height: 50px !important; align-self: center">
+                        <mat-icon class="icon-size-5 text-hint" [svgIcon]="'heroicons_solid:x'"
+                            style="color: #fff !important; padding-top: 0.7rem; align-self: center">
+                        </mat-icon>
+                    </button>
+                </div>
             </mat-button-toggle-group>
-</div>
-<!-- </div> -->
+        </ng-container>
+        <!-- <ng-container *ngIf="!alert.disabled">
+            <mat-button-toggle-group value="today" #scheduleDaySelector="matButtonToggleGroup">
+                <div class="flex flex-row w-full">
+                    <div class="flex flex-col" style="width: 80% !important; text-align: start; padding-left: 2rem;">
+                        <div value="tomorrow" style="font-family: 'Inter var'; font-size: 28px">{{ alert.hora }}</div>
+                        <div value="tomorrow">{{ alert.gramas }}g</div>
+                    </div>
+                    <button
+                        style="background-color: #00000000; border-radius: 50%; width: 50px !important; height: 50px !important;">
+                        <img [src]="dogBowlDisabled">
+                    </button>
+                    <button
+                        style="background-color: #B7B7B7; border-radius: 50%; width: 50px !important; height: 50px !important;">
+                        <mat-icon class="icon-size-5 text-hint" [svgIcon]="'heroicons_solid:x'"
+                            style="color: #fff !important">
+                        </mat-icon>
+                    </button>
+                </div>
+            </mat-button-toggle-group>
+        </ng-container> -->
+    </div>
+    <!-- </div> -->
 
-<div class="add">
+    <div class="add">
 
-    <a [routerLink]="['../adicionar']">
-        Adicionar
-    </a>
-    <!-- <div>
+        <a [routerLink]="['../adicionar']">
+            Adicionar
+        </a>
+        <!-- <div>
         <button
         [routerLink]="['../adicionar']"
         class="fuse-mat-button-rounded"
@@ -34,5 +67,5 @@
         <span class="ml-2">Adicionar</span>
     </button>
     </div> -->
-</div>
+    </div>
 </div>

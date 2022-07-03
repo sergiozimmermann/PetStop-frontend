@@ -27,7 +27,7 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatSidenavModule,
     MatSortModule,
     MatTableModule,
-    MatTabsModule
+    MatTabsModule,
   ],
   declarations: [MainComponent]
 })

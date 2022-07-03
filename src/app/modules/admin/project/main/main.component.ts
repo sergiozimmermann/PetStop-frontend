@@ -8,19 +8,25 @@ import { Alert, AlertaService } from 'app/services/alerta.service';
   providers: [AlertaService]
 })
 export class MainComponent implements OnInit {
-    alerts: Alert[] = [];
+  alerts: Alert[] = [];
 
-    constructor(private alertaService: AlertaService, private cd: ChangeDetectorRef) {
+  public imageIcons = "../../../../../assets/images/icons";
+
+  public dogBowlEnabled = `${this.imageIcons}/dog-bowl-enabled.png`;
+
+  public dogBowlDisabled = `${this.imageIcons}/dog-bowl-disabled.png`;
+
+  constructor(private alertaService: AlertaService, private cd: ChangeDetectorRef) {
 
     // this.alertaService.getAlerts().subscribe((res) => {
     //     console.log(res);
     // });
 
     this.alertaService.getAlerts().subscribe((res) => {
-        this.alerts = res;
-        this.cd.detectChanges();
-      });
-   }
+      this.alerts = res;
+      this.cd.detectChanges();
+    });
+  }
 
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
