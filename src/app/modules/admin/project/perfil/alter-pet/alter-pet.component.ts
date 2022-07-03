@@ -17,7 +17,7 @@ export class AlterPetComponent implements OnInit {
 
   constructor(private petService: PetService, private formBuilder: FormBuilder) {
         this.formulario = this.formBuilder.group({
-        nome  : [''],
+        nome: [''],
         tamanho: ['']
     });
   }
