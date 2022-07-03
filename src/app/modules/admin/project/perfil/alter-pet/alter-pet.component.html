@@ -8,24 +8,23 @@
                 #signInNgForm="ngForm">
 
                 <mat-form-field class="w-full">
-                    <mat-label>Quantidade</mat-label>
+                    <mat-label>Nome</mat-label>
                     <input
-                        id="gramas"
+                        id="nome"
                         matInput
-                        type="number"
-                        [formControlName]="'gramas'"
-                        #horaField>
+                        type="string"
+                        [formControlName]="'nome'">
                 </mat-form-field>
 
 
                 <mat-form-field class="w-full">
-                    <mat-label>Horario</mat-label>
+                    <mat-label>tamanho</mat-label>
                     <input
-                        id="hora"
+                        id="tamanho"
                         matInput
-                        type="time"
-                        [formControlName]="'hora'"
-                        #horaField>
+                        type="number"
+                        [formControlName]="'tamanho'"
+                        >
                 </mat-form-field>
 
                 <!-- Submit button -->
@@ -33,7 +32,7 @@
                     class="fuse-mat-button-large w-full mt-6"
                     mat-flat-button
                     [color]="'primary'"
-                    (click)="add()"
+                    (click)="updatePet()"
                     >
                     <span >
                         Adicionar
