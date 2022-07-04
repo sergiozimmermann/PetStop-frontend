@@ -31,10 +31,10 @@ export class AlertaService {
   //     return docData(noteDocRef, { idField: 'id' }) as Observable<Note>;
   //   }
 
-addAlert(gramas: any, hora: string) {
+addAlert(gramas: any, hora: string, ativo: boolean) {
     if(gramas == null || hora == null){
         const alertsRef = collection(this.firestore, 'alerts');
-        return addDoc(alertsRef, {gramas: gramas, hora: hora});
+        return addDoc(alertsRef, {gramas: gramas, hora: hora, ativo: ativo});
     }
   }
 
@@ -46,7 +46,7 @@ addAlert(gramas: any, hora: string) {
   updateAlert(alert: Alert) {
     if(alert.gramas == null || alert.hora == null){
     const alertsRef = doc(this.firestore, `alerts/${alert.id}`);
-    return updateDoc(alertsRef, { title: alert.gramas, alert: alert.hora });
+    return updateDoc(alertsRef, { title: alert.gramas, alert: alert.hora, ativo: alert.ativo });
     }
   }
 }
