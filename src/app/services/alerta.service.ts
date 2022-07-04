@@ -31,8 +31,10 @@ getAlerts(): Observable<Alert[]> {
 //   }
 
 addAlert(gramas: any, hora: string) {
-    const alertsRef = collection(this.firestore, 'alerts');
-    return addDoc(alertsRef, {gramas: gramas, hora: hora});
+    if(gramas == null || hora == null){
+        const alertsRef = collection(this.firestore, 'alerts');
+        return addDoc(alertsRef, {gramas: gramas, hora: hora});
+    }
   }
 
   deleteAlert(alert: Alert) {
@@ -41,7 +43,9 @@ addAlert(gramas: any, hora: string) {
   }
 
   updateAlert(alert: Alert) {
+    if(alert.gramas == null || alert.hora == null){
     const alertsRef = doc(this.firestore, `alerts/${alert.id}`);
     return updateDoc(alertsRef, { title: alert.gramas, alert: alert.hora });
+    }
   }
 }
