@@ -5,30 +5,31 @@ import { Firestore, collection, collectionData, doc, docData, addDoc, deleteDoc,
 import { Observable } from 'rxjs';
 
 export interface Alert {
-    id?: string;
-    gramas: number;
-    hora: string;
-  }
+  id?: string;
+  gramas: number;
+  hora: string;
+  ativo: boolean;
+}
 
 @Injectable({
-    providedIn: 'root'
-  })
+  providedIn: 'root'
+})
 
 export class AlertaService {
 
-constructor(private firestore: Firestore) { }
+  constructor(private firestore: Firestore) { }
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 
-getAlerts(): Observable<Alert[]> {
+  getAlerts(): Observable<Alert[]> {
     const alertsRef = collection(this.firestore, 'alerts');
-    return collectionData(alertsRef, { idField: 'id'}) as Observable<Alert[]>;
+    return collectionData(alertsRef, { idField: 'id' }) as Observable<Alert[]>;
   }
 
-//   getNoteById(id): Observable<Note> {
-//     const noteDocRef = doc(this.firestore, `notes/${id}`);
-//     return docData(noteDocRef, { idField: 'id' }) as Observable<Note>;
-//   }
+  //   getNoteById(id): Observable<Note> {
+  //     const noteDocRef = doc(this.firestore, `notes/${id}`);
+  //     return docData(noteDocRef, { idField: 'id' }) as Observable<Note>;
+  //   }
 
 addAlert(gramas: any, hora: string) {
     if(gramas == null || hora == null){

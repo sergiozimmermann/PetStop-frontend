@@ -1,52 +1,65 @@
 <!-- Schedule -->
 <div class="w-full pt-2">
-    <div class="alarm mb-2" style="text-align: center; box-shadow: 0 5px 10px rgb(0 0 0 / 20%);"
-        *ngFor="let alert of alerts">
+    <div class="alarm mb-2" style="text-align: center;" *ngFor="let alert of alerts">
         <!-- <div class="flex flex-col sm:flex-row items-start "> -->
-        <ng-container>
+        <ng-container *ngIf="alert.ativo === true">
             <mat-button-toggle-group value="today" #scheduleDaySelector="matButtonToggleGroup">
                 <div class="flex flex-row w-full">
-                    <div class="flex flex-row w-full">
+                    <div class="flex flex-row w-full mr-4 ml-4" style="box-shadow: 0 5px 10px rgb(0 0 0 / 20%);">
                         <div class="flex flex-col"
                             style="width: 80% !important; text-align: start; padding-left: 2rem;">
-                            <div value="tomorrow" style="font-family: 'Inter var'; font-size: 28px">{{ alert.hora }}
+                            <div value="tomorrow" style="font-family: 'Inter var'; font-size: 28px; font-weight: bold;">
+                                {{ alert.hora }}
                             </div>
                             <div value="tomorrow">{{ alert.gramas }}g</div>
                         </div>
                         <button
-                            style="background-color: #00000000; border-radius: 50%; width: 50px !important; height: 50px !important; align-self: center">
+                            style="background-color: #00000000; border-radius: 50%; width: 50px !important; height: 50px !important; align-self: center"
+                            (click)="statusAlarme(alert, false)">
                             <img [src]="dogBowlEnabled">
                         </button>
                     </div>
-                    <button
-                        style="background-color: #B7B7B7; border-radius: 50%; width: 50px !important; height: 50px !important; align-self: center">
-                        <mat-icon class="icon-size-5 text-hint" [svgIcon]="'heroicons_solid:x'"
-                            style="color: #fff !important; padding-top: 0.7rem; align-self: center">
-                        </mat-icon>
-                    </button>
+                    <div class="h-full self-center">
+                        <button class="mr-2 pr-2 pl-2"
+                            style="background-color: #B7B7B7; border-radius: 50%; width: 50px !important; height: 45px !important"
+                            (click)="deletarAlarme(alert)">
+                            <mat-icon class="icon-size-5 text-hint" [svgIcon]="'heroicons_solid:x'"
+                                style="color: #fff !important; padding-top: 0.7rem; align-self: center">
+                            </mat-icon>
+                        </button>
+                    </div>
                 </div>
             </mat-button-toggle-group>
         </ng-container>
-        <!-- <ng-container *ngIf="!alert.disabled">
+        <ng-container *ngIf="alert.ativo === false">
             <mat-button-toggle-group value="today" #scheduleDaySelector="matButtonToggleGroup">
                 <div class="flex flex-row w-full">
-                    <div class="flex flex-col" style="width: 80% !important; text-align: start; padding-left: 2rem;">
-                        <div value="tomorrow" style="font-family: 'Inter var'; font-size: 28px">{{ alert.hora }}</div>
-                        <div value="tomorrow">{{ alert.gramas }}g</div>
+                    <div class="flex flex-row w-full mr-4 ml-4" style="box-shadow: 0 5px 10px rgb(0 0 0 / 20%);">
+                        <div class="flex flex-col"
+                            style="width: 80% !important; text-align: start; padding-left: 2rem; color: #C4C4C4;">
+                            <div value="tomorrow" style="font-family: 'Inter var'; font-size: 28px; font-weight: bold;">
+                                {{ alert.hora }}
+                            </div>
+                            <div value="tomorrow">{{ alert.gramas }}g</div>
+                        </div>
+                        <button
+                            style="background-color: #00000000; border-radius: 50%; width: 50px !important; height: 50px !important; align-self: center"
+                            (click)="statusAlarme(alert, true)">
+                            <img [src]="dogBowlDisabled">
+                        </button>
                     </div>
-                    <button
-                        style="background-color: #00000000; border-radius: 50%; width: 50px !important; height: 50px !important;">
-                        <img [src]="dogBowlDisabled">
-                    </button>
-                    <button
-                        style="background-color: #B7B7B7; border-radius: 50%; width: 50px !important; height: 50px !important;">
-                        <mat-icon class="icon-size-5 text-hint" [svgIcon]="'heroicons_solid:x'"
-                            style="color: #fff !important">
-                        </mat-icon>
-                    </button>
+                    <div class="h-full self-center">
+                        <button class="mr-2 pr-2 pl-2"
+                            style="background-color: #B7B7B7; border-radius: 50%; width: 50px !important; height: 45px !important"
+                            (click)="deletarAlarme(alert)">
+                            <mat-icon class="icon-size-5 text-hint" [svgIcon]="'heroicons_solid:x'"
+                                style="color: #fff !important; padding-top: 0.7rem; align-self: center">
+                            </mat-icon>
+                        </button>
+                    </div>
                 </div>
             </mat-button-toggle-group>
-        </ng-container> -->
+        </ng-container>
     </div>
     <!-- </div> -->
 

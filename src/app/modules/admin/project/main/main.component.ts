@@ -21,16 +21,33 @@ export class MainComponent implements OnInit {
     // this.alertaService.getAlerts().subscribe((res) => {
     //     console.log(res);
     // });
+  }
 
+
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+  ngOnInit() {
+    this.obterAlarmes();
+  }
+
+  public obterAlarmes() {
     this.alertaService.getAlerts().subscribe((res) => {
       this.alerts = res;
       this.cd.detectChanges();
     });
   }
 
+  public statusAlarme(alert, ativo) {
+    if (ativo) {
+      alert.ativo = true;
+    } else {
+      alert.ativo = false;
+    }
+    this.alertaService.updateAlert(alert);
+  }
 
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  ngOnInit() {
+  public deletarAlarme(alert) {
+    this.alertaService.deleteAlert(alert);
+    this.obterAlarmes();
   }
 
 }

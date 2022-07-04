@@ -18,7 +18,8 @@ export class AdicionarComponent implements OnInit {
 
     this.formulario = this.formBuilder.group({
         gramas  : [''],
-        hora: ['']
+        hora: [''],
+        ativo: [true]
     });
 
     //this.pegaValues();
@@ -35,7 +36,7 @@ export class AdicionarComponent implements OnInit {
 
   public add(){
     const teste: Alert = this.formulario.getRawValue();
-    this.alertaService.addAlert(teste.gramas, teste.hora);
+    this.alertaService.addAlert(teste.gramas, teste.hora, teste.ativo = true);
   }
 
 }
